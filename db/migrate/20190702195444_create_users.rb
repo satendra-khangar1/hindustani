@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :name
       t.text :aadhar
       t.datetime :bdate
+      t.integer :father_id
+      t.integer :mother_id
       t.timestamps
     end
   end

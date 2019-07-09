@@ -3,8 +3,15 @@
   <p>Name: <%= @user.name %></p>
   <p>Aadhar: <%= @user.aadhar %></p>
   <p>Birth Date: <%= @user.bdate %></p>
-  <p><%= link_to 'Father', user_father_path(@user), class: "btn btn-sm btn-primary" %><%= link_to 'mother', user_mother_path(@user), class: "btn btn-sm btn-primary" %><%= link_to 'chidren', user_children_path(@user), class: "btn btn-sm btn-primary" %></p>
-  
+  <% if @user.father_id %>
+    <p><%= link_to 'Father', user_father_path(@user), class: "btn btn-sm btn-primary" %></p>
+  <% end %>
+  <% if @user.mother_id %>
+    <p><%= link_to 'mother', user_mother_path(@user), class: "btn btn-sm btn-primary" %></p>
+  <% end %>  
+  <% if @user.children.present? %>
+    <p><%= link_to 'children', user_children_path(@user), class: "btn btn-sm btn-primary" %></p>
+  <% end %>
   <p><%= link_to 'Back', users_path, class: "btn btn-primary" %></p>	
 </div>
 
